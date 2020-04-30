@@ -41,10 +41,10 @@ class UsersController < ApplicationController
     end
 
     get "/users/:id" do 
-        if !logged_in? || current_user.id != params[:id]
+        if !logged_in? || current_user.id != params[:id].to_i
             redirect to "/users/login"
         end
-        binding.pry
+        
         @user = current_user
         @songs = @user.songs if !@user.songs.empty?
         erb :"users/show"
