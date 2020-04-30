@@ -21,7 +21,7 @@ class UsersController < ApplicationController
             end
             user = User.create(params)
             session[:user_id] = user.id
-            redirect to "/users/#{@user.id}"
+            redirect to "/users/#{user.id}"
         end
     end 
 
@@ -38,7 +38,13 @@ class UsersController < ApplicationController
     end
 
     get "/users/:id" do 
-
+        if !logged_in? || current_user.id != params[:id]
+            redirect to "/users/login"
+        end
+        binding.pry
+        @user = current_user
+        @songs = @user.songs if !@user.songs.empty?
+        erb :"users/show"
     end
 
     post "/users/:id" do 
