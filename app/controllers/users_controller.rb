@@ -8,7 +8,21 @@ class UsersController < ApplicationController
     end
 
     post "/users/signup" do 
-
+        @username = params[:username]
+        @email = params[:email]
+        @password = params[:password]
+        if !@username || !@email || !@password 
+            redirect to '/users/signup'
+        else 
+            User.all.each do |user|
+                if user.username == @username || user.email == @email 
+                    redirect to '/users/login'
+                end 
+            end
+            user = User.create(params)
+            session[:user_id] = user.id
+            redirect to "/users/#{@user.id}"
+        end
     end 
 
     get "/users/login" do 
