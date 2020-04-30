@@ -54,6 +54,8 @@ class UsersController < ApplicationController
         if !logged_in? || current_user.id != params[:id].to_i
             redirect to "/users/login"
         end
+        User.find_by(id: params[:id]).destroy
+        redirect to "/"
     end
 
 end
