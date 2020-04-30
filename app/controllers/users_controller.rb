@@ -41,17 +41,19 @@ class UsersController < ApplicationController
     end
 
     get "/users/:id" do 
-        if !logged_in? || current_user.id != params[:id].to_i
+        if !logged_in?
             redirect to "/users/login"
         end
         
-        @user = current_user
+        @user = User.find_by(id: params[:id])
         @songs = @user.songs if !@user.songs.empty?
         erb :"users/show"
     end
 
     delete "/users/:id/delete" do 
-
+        if !logged_in? || current_user.id != params[:id].to_i
+            redirect to "/users/login"
+        end
     end
 
 end
