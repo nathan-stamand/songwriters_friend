@@ -1,3 +1,3 @@
-class UsersController < ActiveRecord::Base 
+class UsersController < ApplicationController
 
 end

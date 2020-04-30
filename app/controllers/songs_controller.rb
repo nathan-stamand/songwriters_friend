@@ -1,3 +1,3 @@
-class SongsController < ActiveRecord::Base 
+class SongsController < ApplicationController
 
 end
