@@ -20,6 +20,11 @@
 
 <% if logged_in? && current_user.id == @user.id %>
 
+<form action="/songs/new" method="get">
+    <label for="new_song">Create Songs Here!</label>
+    <input type="submit" id="new_song" value="New Song">
+</form>
+<br><br>
 <form action="/users/:id/delete" method="post">
     <input type="hidden" name="_method" id="delete">
     <label for="delete_account">Sick of the Songwriting Game?</label>
