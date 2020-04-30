@@ -50,11 +50,13 @@ class UsersController < ApplicationController
         erb :"users/show"
     end
 
-    delete "/users/:id/delete" do 
+    delete '/users/:id/delete' do 
         if !logged_in? || current_user.id != params[:id].to_i
             redirect to "/users/login"
         end
-        User.find_by(id: params[:id]).destroy
+        @user = User.find_by(id: params[:id])
+        @user.destroy
+        session.clear
         redirect to "/"
     end
 

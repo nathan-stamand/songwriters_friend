@@ -25,8 +25,8 @@
     <input type="submit" id="new_song" value="New Song">
 </form>
 <br><br>
-<form action="/users/:id/delete" method="post">
-    <input type="hidden" name="_method" id="delete">
+<form action="/users/<%= @user.id %>/delete" method="post">
+    <input type="hidden" name="_method" value="delete">
     <label for="delete_account">Sick of the Songwriting Game?</label>
     <input type="submit" id="delete_account" value="Delete Account">
 </form>
