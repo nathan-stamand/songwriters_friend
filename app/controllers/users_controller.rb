@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
 
     get "/users/signup" do
-        if logged_in? 
+        if !!current_user 
             redirect to "/users/#{current_user.id}"
         end
-        erb :"users/signup"
+        erb :"users/new"
     end
 
     post "/users/signup" do 
