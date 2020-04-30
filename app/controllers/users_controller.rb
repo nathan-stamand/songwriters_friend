@@ -50,14 +50,6 @@ class UsersController < ApplicationController
         erb :"users/show"
     end
 
-    post "/users/:id" do 
-
-    end 
-
-    patch "/users/:id/edit" do 
-
-    end
-
     delete "/users/:id/delete" do 
 
     end
