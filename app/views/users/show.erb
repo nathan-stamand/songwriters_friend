@@ -1,0 +1,17 @@
+<h1>Welcome, <%= @user.username %>!</h1>
+<br>
+
+<% if @songs %>
+<p>Click <a href=".././songs/new">here</a> to add a new song to your list!</p>
+<br>
+    <h3>Your songs:</h3>
+        <ul>
+            <% @songs.each do |song| %>
+                <li>
+                 <a href=".././songs/<%= song.id %>" ><%= song.title %></a>
+                </li>
+            <% end %>
+        </ul>
+    <% else %> 
+        <p>You have no songs! Click <a href=".././songs/new" >here</a> to start making one!</p>
+<% end %> 
