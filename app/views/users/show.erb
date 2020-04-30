@@ -1,10 +1,14 @@
+<% if current_user.id == @user.id %>
 <h1>Welcome, <%= @user.username %>!</h1>
+<% else %> 
+<h1>Welcome to <%= @user.username %>'s Page!</h1>
+<% end %>
 <br>
 
 <% if @songs %>
-<p>Click <a href=".././songs/new">here</a> to add a new song to your list!</p>
+
 <br>
-    <h3>Your songs:</h3>
+    <h3>Created Songs:</h3>
         <ul>
             <% @songs.each do |song| %>
                 <li>
@@ -12,12 +16,14 @@
                 </li>
             <% end %>
         </ul>
-    <% else %> 
-        <p>You have no songs! Click <a href=".././songs/new" >here</a> to start making one!</p>
 <% end %> 
+
+<% if logged_in? && current_user.id == @user.id %>
 
 <form action="/users/:id/delete" method="post">
     <input type="hidden" name="_method" id="delete">
     <label for="delete_account">Sick of the Songwriting Game?</label>
     <input type="submit" id="delete_account" value="Delete Account">
 </form>
+
+<% end %>
