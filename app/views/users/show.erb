@@ -15,3 +15,9 @@
     <% else %> 
         <p>You have no songs! Click <a href=".././songs/new" >here</a> to start making one!</p>
 <% end %> 
+
+<form action="/users/:id/delete" method="post">
+    <input type="hidden" name="_method" id="delete">
+    <label for="delete_account">Sick of the Songwriting Game?</label>
+    <input type="submit" id="delete_account" value="Delete Account">
+</form>
