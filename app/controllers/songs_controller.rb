@@ -43,4 +43,16 @@ class SongsController < ApplicationController
         erb :"songs/show"
     end
 
+    get "/songs/:id/edit" do 
+        if !logged_in? 
+            redirect to "/users/login"
+        end
+        @song = Song.find_by(id: params[:id])
+        if current_user.id == @song.user.id
+            erb :"songs/edit"
+        else 
+            redirect to "/users/#{current_user.id}" 
+        end
+    end
+
 end
