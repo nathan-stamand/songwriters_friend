@@ -26,11 +26,11 @@
 
 <% if @user && @user.id == @song_creator.id %>
 <p>- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</p>
-<form action="songs/<%= @song.id %>/edit" method="get">
+<form action="/songs/<%= @song.id %>/edit" method="get">
     <input type="submit" value="Edit">
 </form>
 <br>
-<form action="songs/<%= @song.id %>/delete" method="post">
+<form action="/songs/<%= @song.id %>/delete" method="post">
     <input type="hidden" name="_method" value="delete">
     <input type="submit" value="Delete">
 </form>
