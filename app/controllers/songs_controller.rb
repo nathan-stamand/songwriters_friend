@@ -27,7 +27,7 @@ class SongsController < ApplicationController
         time = Time.new
         @date = time.ctime
 
-        @song = Song.create(title: @title, tempo: @tempo, time_signature: @time_sig, key_signature: @key_sig, co_authors: @co_authors, lyrics: @lyrics)
+        @song = Song.create(title: @title, tempo: @tempo, time_signature: @time_sig, key_signature: @key_sig, co_authors: @co_authors, lyrics: @lyrics, date_created: @date)
         @user.songs << @song 
         @user.save
         
