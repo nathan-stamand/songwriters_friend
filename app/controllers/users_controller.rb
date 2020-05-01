@@ -35,7 +35,7 @@ class UsersController < ApplicationController
     post "/users/login" do 
         @username_email = params[:username_email]
         @password = params[:password]
-        @user = User.find_by(email: @email_username) || User.find_by(username: @email_username)
+        @user = User.find_by(email: @username_email) || User.find_by(username: @username_email)
         
         if @username_email == '' || @password == '' || !@user
             redirect to "users/login"
