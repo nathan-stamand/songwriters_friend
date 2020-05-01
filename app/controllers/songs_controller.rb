@@ -72,6 +72,7 @@ class SongsController < ApplicationController
             redirect to "/users/login"
         end 
         @title = params[:title]
+        @date = @song.date_created
         @tempo = params[:tempo][:estimate_tempo]
         exact_tempo = params[:tempo][:exact_tempo]
 
@@ -83,7 +84,7 @@ class SongsController < ApplicationController
         @co_authors = params[:co_authors]
         @lyrics = params[:lyrics]
 
-        @song.update(title: @title, tempo: @tempo, time_signature: @time_sig, key_signature: @key_sig, co_authors: @co_authors, lyrics: @lyrics, date_created: @song.date_created)
+        @song.update(title: @title, tempo: @tempo, time_signature: @time_sig, key_signature: @key_sig, co_authors: @co_authors, lyrics: @lyrics, date_created: @date)
         @song.save
         
         redirect to "/songs/#{@song.id}"
