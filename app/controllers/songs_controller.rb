@@ -23,7 +23,7 @@ class SongsController < ApplicationController
         @time_sig = params[:time_signature]
         @key_sig = params[:key_signature][:letter] + params[:key_signature][:sharp_flat] + ' ' + params[:key_signature][:maj_min]
         @co_authors = params[:co_authors]
-        @lyrics = params[:lyrics].gsub("\r\n", ' / ')
+        @lyrics = params[:lyrics]
         time = Time.new
         @date = time.ctime
 
@@ -31,7 +31,7 @@ class SongsController < ApplicationController
         @user.songs << @song 
         @user.save
         
-        
+        redirect to "/songs/#{@song.id}"
     end
 
 end
