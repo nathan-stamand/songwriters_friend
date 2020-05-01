@@ -34,6 +34,17 @@ class SongsController < ApplicationController
         redirect to "/songs/#{@song.id}"
     end
 
+    delete "/songs/:id/delete" do
+        @song = Song.find_by(id: params[:id])
+        if !logged_in?
+            redirect to "/users/login"
+        elsif current_user.id != @song.user.id
+            redirect to "/users/#{current_user.id}"
+        end
+        @song.destroy 
+        redirect to "/users/#{current_user.id}"
+    end
+
     get "/songs/:id" do 
         @song = Song.find_by(id: params[:id])
         @song_creator = @song.user 
