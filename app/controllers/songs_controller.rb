@@ -55,4 +55,9 @@ class SongsController < ApplicationController
         end
     end
 
+    patch "songs/:id/edit" do 
+        @song = Song.find_by(id: params[:id])
+        
+    end
+
 end
