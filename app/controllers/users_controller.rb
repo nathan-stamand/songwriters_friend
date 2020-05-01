@@ -71,6 +71,9 @@ class UsersController < ApplicationController
             redirect to "/users/login"
         end
         @user = User.find_by(id: params[:id])
+        @user.songs.each do |song|
+            song.destroy 
+        end
         @user.destroy
         session.clear
         redirect to "/"
