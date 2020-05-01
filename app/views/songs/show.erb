@@ -19,6 +19,10 @@
         <br> 
     <% end %>
 <% end %>
+<br>
+<% if @user %>
+<a href="/users/<%= @user.id %>">Return to your homepage</a>
+<% end %>
 
 <% if @user && @user.id == @song_creator.id %>
 <p>- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</p>
