@@ -34,4 +34,12 @@ class SongsController < ApplicationController
         redirect to "/songs/#{@song.id}"
     end
 
+    get "/songs/:id" do 
+        @song = Song.find_by(id: params[:id])
+        @song_creator = @song.user 
+        @user = current_user if current_user
+
+        erb :"songs/show"
+    end
+
 end
