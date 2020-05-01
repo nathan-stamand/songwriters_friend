@@ -37,8 +37,9 @@ class SongsController < ApplicationController
     get "/songs/:id" do 
         @song = Song.find_by(id: params[:id])
         @song_creator = @song.user 
-        @user = current_user if current_user
-
+        @user = current_user 
+        @lyrics = @song.lyrics.split("\r\n")
+        
         erb :"songs/show"
     end
 
