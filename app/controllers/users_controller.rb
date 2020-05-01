@@ -33,7 +33,20 @@ class UsersController < ApplicationController
     end 
 
     post "/users/login" do 
+        @username_email = params[:username_email]
+        @password = params[:password]
+        @user = User.find_by(email: @email_username) || User.find_by(username: @email_username)
+        
+        if @username_email == '' || @password == '' || !@user
+            redirect to "users/login"
+        end
 
+        if @user.authenticate(@password) 
+            session[:user_id] = @user.id
+            redirect to "/users/#{@user.id}"
+        else
+            redirect to "/users/login"
+        end
     end
 
     get "/users/logout" do 
