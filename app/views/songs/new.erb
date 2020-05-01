@@ -1,0 +1,30 @@
+<h1>Create a New Song!</h1>
+<br>
+
+<form action="/songs/new" method="post"></form>
+
+<p>Title: <input type="text" name="title" id="title" required></p>
+
+<p>Approximate Tempo: <select name="tempo[estimate_tempo]" id="approximate_tempo">
+    <option value="">Custom</option>
+    <option value="Slow (76 BPM or Below)">Slow (76 BPM or Below)</option>
+    <option value="Moderate (77 BPM to 120 BPM)" selected>Moderate (77 BPM to 120 BPM)</option>
+    <option value="Fast (121 BPM or higher)">Fast (121 BPM or higher)</option>
+</select>
+<blockquote><em>Be sure to select 'custom' in the Approximate Tempo dropdown to save an Exact Tempo</em></blockquote>
+<blockquote>Exact Tempo (optional): <input type="number" name="tempo[exact_tempo]" id="exact_tempo" min="20" max="300" step="1"> Beats Per Minute</blockquote>
+
+<p>Time Signature: <select name="time_signature" id="Time Signature">
+    <option value="4/4">4/4 (Most Common)</option>
+    <option value="2/4">2/4</option>
+    <option value="3/4">3/4</option>
+    <option value="5/4">5/4</option>
+    <option value="3/8">3/8</option>
+    <option value="6/8">6/8</option>
+    <option value="7/8">7/8</option>
+    <option value="9/8">9/8</option>
+    <option value="12/8">12/8</option>
+    
+</select></p>
+
+</form>
