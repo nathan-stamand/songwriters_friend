@@ -13,7 +13,8 @@
     <option value="Fast (121 BPM or higher)" <%= "selected" if @song.tempo == "Fast (121 BPM or higher)" %>>Fast (121 BPM or higher)</option>
 </select>
 <blockquote><em>Be sure to select 'custom' in the Approximate Tempo dropdown to save an Exact Tempo</em></blockquote>
-<blockquote>Exact Tempo (optional): <input type="number" name="tempo[exact_tempo]" id="exact_tempo" min="20" max="300" step="1" <% "value='@song.tempo.to_i'" if @song.tempo.to_i > 0 %>> Beats Per Minute</blockquote>
+<% tempo = @song.tempo.to_i %>
+<blockquote>Exact Tempo (optional): <input type="number" name="tempo[exact_tempo]" id="exact_tempo" min="20" max="300" step="1" value="<%= tempo %>"> Beats Per Minute</blockquote>
 
 <p>Time Signature: <select name="time_signature" id="Time Signature">
     <option value="4/4">4/4 (Most Common)</option>
