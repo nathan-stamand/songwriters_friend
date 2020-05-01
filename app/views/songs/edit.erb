@@ -1,0 +1,57 @@
+<h1>Edit <%= @song.title %></h1>
+<br>
+
+<form action="/songs/<%= @song.id %>/edit> method="post">
+    <input type="hidden" name="_method" value="patch">
+
+<p>Title: <input type="text" name="title" id="title" value="<%= @song.title %>" required></p>
+
+<p>Approximate Tempo: <select name="tempo[estimate_tempo]" id="approximate_tempo">
+    <option value="">Custom</option>
+    <option value="Slow (76 BPM or Below)" <%= "selected" if @song.tempo == "Slow (76 BPM or Below)" %>>Slow (76 BPM or Below)</option>
+    <option value="Moderate (77 BPM to 120 BPM)" <%= "selected" if @song.tempo == "Moderate (77 BPM to 120 BPM)" %>>Moderate (77 BPM to 120 BPM)</option>
+    <option value="Fast (121 BPM or higher)" <%= "selected" if @song.tempo == "Fast (121 BPM or higher)" %>>Fast (121 BPM or higher)</option>
+</select>
+<blockquote><em>Be sure to select 'custom' in the Approximate Tempo dropdown to save an Exact Tempo</em></blockquote>
+<blockquote>Exact Tempo (optional): <input type="number" name="tempo[exact_tempo]" id="exact_tempo" min="20" max="300" step="1" <% "value='@song.tempo.to_i'" if @song.tempo.to_i > 0 %>> Beats Per Minute</blockquote>
+
+<p>Time Signature: <select name="time_signature" id="Time Signature">
+    <option value="4/4">4/4 (Most Common)</option>
+    <option value="2/4" <%= "selected" if @song.time_signature == "2/4" %>>2/4</option>
+    <option value="3/4" <%= "selected" if @song.time_signature == "3/4" %>>3/4</option>
+    <option value="5/4" <%= "selected" if @song.time_signature == "5/4" %>>5/4</option>
+    <option value="3/8" <%= "selected" if @song.time_signature == "3/8" %>>3/8</option>
+    <option value="6/8" <%= "selected" if @song.time_signature == "6/8" %>>6/8</option>
+    <option value="7/8" <%= "selected" if @song.time_signature == "7/8" %>>7/8</option>
+    <option value="9/8" <%= "selected" if @song.time_signature == "9/8" %>>9/8</option>
+    <option value="12/8" <%= "selected" if @song.time_signature == "12/8" %>>12/8</option>
+</select></p>
+
+<p>Key Signature Letter Value: <select name="key_signature[letter]" id="Key Signature">
+    <option value="C">C</option>
+    <option value="D" <%= "selected" if @song.key_signature.include?('D')%>>D</option>
+    <option value="E" <%= "selected" if @song.key_signature.include?('D')%>>E</option>
+    <option value="F" <%= "selected" if @song.key_signature.include?('D')%>>F</option>
+    <option value="G" <%= "selected" if @song.key_signature.include?('D')%>>G</option>
+    <option value="A" <%= "selected" if @song.key_signature.include?('D')%>>A</option>
+    <option value="B" <%= "selected" if @song.key_signature.include?('D')%>>B</option>
+</select></p>
+
+<p>Sharp or Flat: <select name="key_signature[sharp_flat]" id="Sharp Flat">
+    <option value="">Neither</option>
+    <option value="#" <%= "selected" if @song.key_signature.include?('#')%>>Sharp (#)</option>
+    <option value="b" <%= "selected" if @song.key_signature.include?('b')%>>Flat (b)</option>
+</select></p>
+
+<p>Major or Minor: <select name="key_signature[maj_min]" id="Major Minor">
+    <option value="major">Major</option>
+    <option value="minor" <%= "selected" if @song.key_signature.include?('minor')%> > Minor</option>
+</select></p>
+
+<p>Co-Author(s): <input type="text" name="co_authors" value=<%= @song.co_authors %>> <em>Separate names by commas, or else they will run together and create a hideous monster-name.</em></p> 
+
+<p>Type your lyrics below. Press 'Enter' between lines to separate them.</p>
+<textarea name="lyrics" rows="15" cols="35"><%= @song.lyrics %></textarea>
+<br><br>
+<input type="submit" value="Save Changes">
+</form>
