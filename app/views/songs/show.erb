@@ -1,0 +1,13 @@
+<h1><%= @song.title %></h1>
+<p>By: <a href="/users/<%= @song_creator.id"><%= @song_creator.username %></a> 
+    <% if !@song.co_authors.empty %>
+        , <%= @song.co_authors %> 
+    <% end %>
+</p>
+<p>Created <%= @song.date_created %></p>
+<br> 
+
+Time Signature: <%= @song.time_signature %>
+Key: <%= @song.key_signature %>
+Tempo: <%= @song.tempo %>
+
