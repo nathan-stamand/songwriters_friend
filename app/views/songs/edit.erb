@@ -31,11 +31,11 @@
 <p>Key Signature Letter Value: <select name="key_signature[letter]" id="Key Signature">
     <option value="C">C</option>
     <option value="D" <%= "selected" if @song.key_signature.include?('D')%>>D</option>
-    <option value="E" <%= "selected" if @song.key_signature.include?('D')%>>E</option>
-    <option value="F" <%= "selected" if @song.key_signature.include?('D')%>>F</option>
-    <option value="G" <%= "selected" if @song.key_signature.include?('D')%>>G</option>
-    <option value="A" <%= "selected" if @song.key_signature.include?('D')%>>A</option>
-    <option value="B" <%= "selected" if @song.key_signature.include?('D')%>>B</option>
+    <option value="E" <%= "selected" if @song.key_signature.include?('E')%>>E</option>
+    <option value="F" <%= "selected" if @song.key_signature.include?('F')%>>F</option>
+    <option value="G" <%= "selected" if @song.key_signature.include?('G')%>>G</option>
+    <option value="A" <%= "selected" if @song.key_signature.include?('A')%>>A</option>
+    <option value="B" <%= "selected" if @song.key_signature.include?('B')%>>B</option>
 </select></p>
 
 <p>Sharp or Flat: <select name="key_signature[sharp_flat]" id="Sharp Flat">
