@@ -1,5 +1,10 @@
 class UsersController < ApplicationController
 
+    get "/users" do 
+        @users = User.all 
+        erb :"users/index"
+    end
+
     get "/users/signup" do
         if !!current_user 
             redirect to "/users/#{current_user.id}"
