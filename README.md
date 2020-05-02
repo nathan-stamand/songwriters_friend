@@ -28,5 +28,5 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 Please make sure to update tests as appropriate.
 
 ## License: 
-[MIT] https://github.com/nathan-stamand/songwriters_friend/blob/master/LICENSE 
+[MIT] https://opensource.org/licenses/MIT
 
