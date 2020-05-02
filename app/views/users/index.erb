@@ -6,7 +6,11 @@
     </li>
 <% end %>
 </ul>
-<a href="/users/<%= user.id %>">Home</a>
+<% if logged_in? %>
+<a href="/users/<%= current_user.id %>">Home</a>
 <br>
 <a href="/users/logout">Logout</a>
+<% else %> 
+<a href="/">Songwriter's Friend Home</a>
+<% end %>
 
