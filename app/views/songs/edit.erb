@@ -52,7 +52,7 @@
     <option value="minor" <%= "selected" if @song.key_signature.include?('minor')%> > Minor</option>
 </select></p>
 
-<p>Co-Author(s): <input type="text" name="co_authors" value=<%= @song.co_authors %>> <em>Separate names by commas, or else they will run together and create a hideous monster-name.</em></p> 
+<p>Co-Author(s): <input type="text" name="co_authors" value="<%= @song.co_authors %>"> <em>Separate names by commas, or else they will run together and create a hideous monster-name.</em></p> 
 
 <p>Type your lyrics below. Press 'Enter' between lines to separate them.</p>
 <textarea name="lyrics" rows="15" cols="35"><%= @song.lyrics %></textarea>
