@@ -14,6 +14,9 @@
 </select>
 <blockquote><em>Be sure to select 'custom' in the Approximate Tempo dropdown to save an Exact Tempo</em></blockquote>
 <% tempo = @song.tempo.to_i %>
+<% if tempo == 0 %>
+<% tempo = '' %>
+<% end %>
 <blockquote>Exact Tempo (optional): <input type="number" name="tempo[exact_tempo]" id="exact_tempo" min="20" max="300" step="1" value="<%= tempo %>"> Beats Per Minute</blockquote>
 
 <p>Time Signature: <select name="time_signature" id="Time Signature">
