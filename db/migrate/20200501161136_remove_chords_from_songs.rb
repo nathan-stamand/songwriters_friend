@@ -1,4 +1,4 @@
-class RemoveChordsFromSongs < ActiveRecord::Migration[6.0]
+class RemoveChordsFromSongs < ActiveRecord::Migration[5.2]
   def change
     remove_column :songs, :chords, :string
   end

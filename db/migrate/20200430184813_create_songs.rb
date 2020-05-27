@@ -1,4 +1,4 @@
-class CreateSongs < ActiveRecord::Migration[6.0]
+class CreateSongs < ActiveRecord::Migration[5.2]
   def change
     create_table :songs do |s|
       s.string :title 
